@@ -1,0 +1,18 @@
+#include <Servo.h>
+
+Servo mojeSerwo;
+
+int pinPot = A1;
+int pinSerwo = 7;
+
+void setup() {
+  mojeSerwo.attach(pinSerwo);
+}
+
+void loop() {
+  int wartosc = analogRead(pinPot);
+  int kat = map(wartosc, 0, 1023, 0, 180);
+
+  mojeSerwo.write(kat);
+  delay(10);
+}
